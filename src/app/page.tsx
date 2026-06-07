@@ -3,7 +3,7 @@ import { ThiefRow } from "@/components/ThiefRow";
 
 const REPORT_URL =
   "https://x.com/intent/tweet?text=" +
-  encodeURIComponent("@Leonxlnx I caught a design thief: ");
+  encodeURIComponent("@LexnLin I caught a design thief: ");
 
 export default function Home() {
   const count = thieves.length;
@@ -31,18 +31,18 @@ export default function Home() {
           Design Thieves
         </h1>
         <p className="mt-5 max-w-prose text-lg leading-relaxed text-ink-soft">
-          A running ledger of design thieves caught on X — the accounts that
+          A running ledger of design thieves caught on X: the accounts that
           lift, trace, and repost other people&apos;s design work as their own.
         </p>
         <p className="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
           {count} {count === 1 ? "thief" : "thieves"} on record · curated by{" "}
           <a
-            href="https://x.com/Leonxlnx"
+            href="https://x.com/LexnLin"
             target="_blank"
             rel="noopener noreferrer"
             className="text-ink-soft underline-offset-4 hover:text-accent hover:underline"
           >
-            @Leonxlnx
+            @LexnLin
           </a>
         </p>
       </section>
@@ -73,8 +73,9 @@ export default function Home() {
             className="text-ink-soft underline-offset-4 hover:text-accent hover:underline"
           >
             Report it on X
-          </a>{" "}
-          — or add an entry to{" "}
+          </a>
+          ,{" "}
+          or add an entry to{" "}
           <code className="text-ink-soft">src/data/thieves.ts</code> and open a
           PR.
         </p>

@@ -5,7 +5,7 @@ export function xProfileUrl(handle: string): string {
   return `https://x.com/${handle.replace(/^@/, "")}`;
 }
 
-/** True only for well-formed http(s) URLs — guards against broken evidence links. */
+/** True only for well-formed http(s) URLs; guards against broken evidence links. */
 export function isHttpUrl(url?: string): boolean {
   if (!url) return false;
   try {

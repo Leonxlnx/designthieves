@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "A running ledger of design thieves caught on X — the people who lift, trace, and repost other people's design work as their own.";
+  "A running ledger of design thieves caught on X: the people who lift, trace, and repost other people's design work as their own.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://designthieves-on-x.vercel.app"),
