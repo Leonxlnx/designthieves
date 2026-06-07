@@ -5,6 +5,17 @@ export function xProfileUrl(handle: string): string {
   return `https://x.com/${handle.replace(/^@/, "")}`;
 }
 
+/** True only for well-formed http(s) URLs — guards against broken evidence links. */
+export function isHttpUrl(url?: string): boolean {
+  if (!url) return false;
+  try {
+    const { protocol } = new URL(url);
+    return protocol === "http:" || protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
 /** Display name with a guaranteed fallback to the handle. */
 export function displayName(thief: Thief): string {
   return thief.name?.trim() || thief.handle;
