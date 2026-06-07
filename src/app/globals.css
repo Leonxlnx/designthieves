@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  /* Warm paper / ink editorial palette */
+  --paper: #f7f5f0;
+  --paper-raised: #fffefb;
+  --ink: #1a1814;
+  --ink-soft: #56514a;
+  --ink-faint: #8c867c;
+  --line: #e3ded3;
+  --accent: #b4451f; /* muted vermilion — "caught" stamp */
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #100f0d;
+    --paper-raised: #181613;
+    --ink: #f3efe7;
+    --ink-soft: #b3aca0;
+    --ink-faint: #756f64;
+    --line: #2a2723;
+    --accent: #e0703f;
+  }
+}
+
+* {
+  border-color: var(--line);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper-raised);
+}
