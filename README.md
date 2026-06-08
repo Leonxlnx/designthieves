@@ -1,6 +1,6 @@
 # Design Thieves
 
-A minimal, single-page website that lists "design thieves" caught on X (Twitter) —
+A minimal, single-page website that lists "design thieves" caught on X (Twitter):
 accounts that lift, trace, and repost other people's design work as their own.
 
 Live: [designthieves-on-x.vercel.app](https://designthieves-on-x.vercel.app)
@@ -17,12 +17,12 @@ Open [`src/data/thieves.ts`](src/data/thieves.ts) and append an object to the
 
 ```ts
 {
-  handle: "their_x_handle",        // required — without the leading "@"
-  name: "Display Name",            // optional — falls back to the handle
-  note: "What they took.",         // required — keep it to a sentence
+  handle: "their_x_handle",        // required, without the leading "@"
+  name: "Display Name",            // optional, falls back to the handle
+  note: "What they took.",         // required, keep it to a sentence
   stolenFrom: "@original_creator", // optional
-  caughtOn: "2026-06-07",          // optional — ISO date
-  evidenceUrl: "https://x.com/...",// optional — link to the receipts
+  caughtOn: "2026-06-07",          // optional, ISO date
+  evidenceUrl: "https://x.com/...",// optional, link to the receipts
 },
 ```
 

@@ -1,9 +1,10 @@
 import type { Thief } from "@/data/thieves";
-import { displayName, formatCaughtOn, xProfileUrl } from "@/lib/thieves";
+import { displayName, formatCaughtOn, isHttpUrl, xProfileUrl } from "@/lib/thieves";
 
 export function ThiefRow({ thief, index }: { thief: Thief; index: number }) {
   const name = displayName(thief);
   const caughtOn = formatCaughtOn(thief.caughtOn);
+  const hasEvidence = isHttpUrl(thief.evidenceUrl);
 
   return (
     <li className="group border-t border-line">
@@ -45,7 +46,7 @@ export function ThiefRow({ thief, index }: { thief: Thief; index: number }) {
               </span>
             )}
             {caughtOn && <span>caught {caughtOn}</span>}
-            {thief.evidenceUrl && (
+            {hasEvidence && (
               <a
                 href={thief.evidenceUrl}
                 target="_blank"

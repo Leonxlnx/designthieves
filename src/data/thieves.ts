@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Design Thieves — the data source.
+// Design Thieves: the data source.
 //
 // This is the ONLY file you need to edit to add a new entry. Append an object
 // to the `thieves` array below and the site updates automatically.
@@ -18,11 +18,11 @@ export type Thief = {
   stolenFrom?: string;
   /** ISO date string for when they were caught, e.g. "2026-06-07" (optional). */
   caughtOn?: string;
-  /** Link to the receipts — the offending post or thread (optional). */
+  /** Link to the receipts: the offending post or thread (optional). */
   evidenceUrl?: string;
 };
 
-// The ledger. Add new catches here — newest at the top.
+// The ledger. Add new catches here, newest at the top.
 //
 // The notes below are neutral placeholders; refine the `note`, add a
 // `stolenFrom`, a `name`, or swap `evidenceUrl` for a direct link to the
