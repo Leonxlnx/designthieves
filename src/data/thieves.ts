@@ -20,6 +20,8 @@ export type Thief = {
   caughtOn?: string;
   /** Link to the receipts — the offending post or thread (optional). */
   evidenceUrl?: string;
+  /** GitHub username — shown as a profile link when provided (optional). */
+  github?: string;
 };
 
 // The ledger. Add new catches here — newest at the top.
@@ -28,6 +30,15 @@ export type Thief = {
 // `stolenFrom`, a `name`, or swap `evidenceUrl` for a direct link to the
 // offending post when you have the receipts.
 export const thieves: Thief[] = [
+  {
+    handle: "ayushrout12",
+    name: "Ayush Rout",
+    note: "Straight-up cloned multiple projects: tryjasmine.dev → trylotus.dev, arjunshah.xyz → ayushrout.xyz, style-stealer → style-robber, MathPrac → MathIQ+, paypasser → his own repo. Some originals had no MIT license.",
+    stolenFrom: "@arjunkshah21 & friends",
+    caughtOn: "2026-06-12",
+    evidenceUrl: "https://github.com/ayushrout12",
+    github: "ayushrout12",
+  },
   {
     handle: "alxui_ux",
     note: "Flagged for passing off other designers' UI work as their own.",
