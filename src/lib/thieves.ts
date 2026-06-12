@@ -5,6 +5,11 @@ export function xProfileUrl(handle: string): string {
   return `https://x.com/${handle.replace(/^@/, "")}`;
 }
 
+/** Build the GitHub profile URL for a username. */
+export function githubProfileUrl(username: string): string {
+  return `https://github.com/${username}`;
+}
+
 /** Display name with a guaranteed fallback to the handle. */
 export function displayName(thief: Thief): string {
   return thief.name?.trim() || thief.handle;

@@ -1,5 +1,5 @@
 import type { Thief } from "@/data/thieves";
-import { displayName, formatCaughtOn, xProfileUrl } from "@/lib/thieves";
+import { displayName, formatCaughtOn, githubProfileUrl, xProfileUrl } from "@/lib/thieves";
 
 export function ThiefRow({ thief, index }: { thief: Thief; index: number }) {
   const name = displayName(thief);
@@ -45,6 +45,16 @@ export function ThiefRow({ thief, index }: { thief: Thief; index: number }) {
               </span>
             )}
             {caughtOn && <span>caught {caughtOn}</span>}
+            {thief.github && (
+              <a
+                href={githubProfileUrl(thief.github)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent underline-offset-4 hover:underline"
+              >
+                github →
+              </a>
+            )}
             {thief.evidenceUrl && (
               <a
                 href={thief.evidenceUrl}
