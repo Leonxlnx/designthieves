@@ -8,9 +8,14 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export type Thief = {
-  /** X / Twitter handle, WITHOUT the leading "@". e.g. "jack" */
-  handle: string;
-  /** Optional display name. Falls back to the handle if omitted. */
+  /**
+   * X / Twitter handle, WITHOUT the leading "@". e.g. "jack".
+   * Optional: omit it for GitHub-only thieves so the row links to GitHub
+   * instead of a (wrong) X profile. At least one of `handle` or `github`
+   * should be set.
+   */
+  handle?: string;
+  /** Optional display name. Falls back to the handle or GitHub username. */
   name?: string;
   /** What they took / why they're on the list. Keep it to a sentence. */
   note: string;
@@ -38,12 +43,10 @@ export const thieves: Thief[] = [
     evidenceUrl: "https://x.com/shariar_design",
   },
   {
-    handle: "ayushrout12",
     name: "Ayush Rout",
     note: "Straight-up cloned multiple projects: tryjasmine.dev → trylotus.dev, arjunshah.xyz → ayushrout.xyz, style-stealer → style-robber, MathPrac → MathIQ+, paypasser → his own repo. Some originals had no MIT license.",
     stolenFrom: "@arjunkshah21 & friends",
     caughtOn: "2026-06-12",
-    evidenceUrl: "https://github.com/ayushrout12",
     github: "ayushrout12",
   },
   {
