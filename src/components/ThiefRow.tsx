@@ -6,6 +6,16 @@ export function ThiefRow({ thief, index }: { thief: Thief; index: number }) {
   const caughtOn = formatCaughtOn(thief.caughtOn);
   const hasEvidence = isHttpUrl(thief.evidenceUrl);
 
+  // X handle takes priority; GitHub-only thieves link to GitHub instead of a
+  // (wrong) X profile.
+  const handle = thief.handle?.replace(/^@/, "");
+  const profileUrl = handle
+    ? xProfileUrl(handle)
+    : thief.github
+      ? githubProfileUrl(thief.github)
+      : undefined;
+  const profileLabel = handle ? `@${handle}` : thief.github;
+
   return (
     <li className="group border-t border-line">
       <div className="flex flex-col gap-3 py-6 sm:flex-row sm:gap-6">
@@ -17,22 +27,28 @@ export function ThiefRow({ thief, index }: { thief: Thief; index: number }) {
         <div className="flex-1">
           {/* Name + handle */}
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <a
-              href={xProfileUrl(thief.handle)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-lg font-semibold tracking-tight decoration-line underline-offset-4 transition-colors hover:text-accent hover:underline"
-            >
-              {name}
-            </a>
-            <a
-              href={xProfileUrl(thief.handle)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-sm text-ink-faint transition-colors hover:text-ink-soft"
-            >
-              @{thief.handle.replace(/^@/, "")}
-            </a>
+            {profileUrl ? (
+              <a
+                href={profileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg font-semibold tracking-tight decoration-line underline-offset-4 transition-colors hover:text-accent hover:underline"
+              >
+                {name}
+              </a>
+            ) : (
+              <span className="text-lg font-semibold tracking-tight">{name}</span>
+            )}
+            {profileUrl && profileLabel && (
+              <a
+                href={profileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-sm text-ink-faint transition-colors hover:text-ink-soft"
+              >
+                {profileLabel}
+              </a>
+            )}
           </div>
 
           {/* What they did */}
@@ -46,7 +62,7 @@ export function ThiefRow({ thief, index }: { thief: Thief; index: number }) {
               </span>
             )}
             {caughtOn && <span>caught {caughtOn}</span>}
-            {thief.github && (
+            {handle && thief.github && (
               <a
                 href={githubProfileUrl(thief.github)}
                 target="_blank"

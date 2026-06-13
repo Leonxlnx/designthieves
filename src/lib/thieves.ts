@@ -21,9 +21,9 @@ export function isHttpUrl(url?: string): boolean {
   }
 }
 
-/** Display name with a guaranteed fallback to the handle. */
+/** Display name with a guaranteed fallback to the handle or GitHub username. */
 export function displayName(thief: Thief): string {
-  return thief.name?.trim() || thief.handle;
+  return thief.name?.trim() || thief.handle || thief.github || "unknown";
 }
 
 /** Format an ISO date (e.g. "2026-06-07") as "Jun 7, 2026". Safe on bad input. */

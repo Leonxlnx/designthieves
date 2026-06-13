@@ -56,7 +56,7 @@ export default function Home() {
         ) : (
           <ol className="border-b border-line">
             {thieves.map((thief, index) => (
-              <ThiefRow key={thief.handle} thief={thief} index={index} />
+              <ThiefRow key={thief.handle ?? thief.github} thief={thief} index={index} />
             ))}
           </ol>
         )}
