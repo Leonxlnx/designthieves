@@ -5,6 +5,11 @@ export function xProfileUrl(handle: string): string {
   return `https://x.com/${handle.replace(/^@/, "")}`;
 }
 
+/** Build the GitHub profile URL for a username. */
+export function githubProfileUrl(username: string): string {
+  return `https://github.com/${encodeURIComponent(username.trim().replace(/^@/, ""))}`;
+}
+
 /** True only for well-formed http(s) URLs; guards against broken evidence links. */
 export function isHttpUrl(url?: string): boolean {
   if (!url) return false;
